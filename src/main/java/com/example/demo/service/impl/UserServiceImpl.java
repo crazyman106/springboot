@@ -1,7 +1,8 @@
 package com.example.demo.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.dao.UserDao;
@@ -16,9 +17,13 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public void addUser(User user) {
-		// String sql = "insert into user(id,username, userid,age) values(?,?,?,?)";
-		// mJdbcTemplate.update(sql, user.getId(), user.getUserName(), user.getUserId(),
-		// user.getAge());
 		userDao.saveUser2DB(user);
 	}
+
+	@Override
+	public List<User> getUsers() {
+		return userDao.getUser();
+	}
+	
+	
 }

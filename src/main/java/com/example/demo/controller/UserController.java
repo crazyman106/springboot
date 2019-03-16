@@ -1,6 +1,9 @@
 package com.example.demo.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +23,11 @@ public class UserController {
 	public User saveUser(@RequestBody User user) {
 		userService.addUser(user);
 		return user;
+	}
+
+	@GetMapping("/get")
+	public List<User> saveUser() {
+		return userService.getUsers();
 	}
 
 }
